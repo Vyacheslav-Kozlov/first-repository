@@ -19,7 +19,7 @@ function App() {
         <UpperMiddleContent/>
       </section>
 
-      <section className="bg-light">
+      <section className="custom-color-bg-grey">
         <LowerMiddleContent/>
       </section>
 
