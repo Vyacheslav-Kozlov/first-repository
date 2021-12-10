@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Header = () => {
+  let [active, setActive] = useState('home');
+  let handleClick = (event) => {
+    setActive(event.target.id)
+  }
   return (
     <div className="border-bottom custom-color-bg-header">
       <div className="container">
@@ -19,10 +23,45 @@ const Header = () => {
             <button className="btn btn-sm px-3 me-2 fw-bolder custom-color-bg">
               Get The App
             </button>
-            <i
-              className="bi bi-list fs-2 text-white"
-              aria-label="burger-menu"
-            />
+            <button className="btn" type="button" id="dropdownMenu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              <i
+                className="bi bi-list fs-2 text-white"
+                aria-label="burger-menu"
+              />
+            </button>
+            <ul
+              className="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenu"
+              onClick={handleClick}>
+              <li>
+                <a
+                  id="home"
+                  className={`dropdown-item ${active === 'home' && 'active'}`}
+                  href="#"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  id="features"
+                  className={`dropdown-item ${active === 'features' && 'active'}`}
+                  href="#"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a
+                  id="pricing"
+                  className={`dropdown-item ${active === 'pricing' && 'active'}`}
+                  href="#"
+                >
+                  Pricing
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
